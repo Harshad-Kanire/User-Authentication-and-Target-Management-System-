@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel='stylesheet' href='/static/style.css'>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Profile</h2>
+        <form method="POST" action='/edit/{{id}}'>
+            <label>Name:</label>
+            <input  id ="field"type="text" name="name" required><br>
+
+            <label>Email:</label>
+            <input id ="field" type="email" name="email"  required><br>
+
+            <label>New Password:</label>
+            <input id ="field" type="password" name="password" required><br>
+
+            <button class="common-style" id ="field" type="submit">Save Changes</button>
+        </form>
+
+        <a href="{{ url_for('profile', id=id) }}">Cancel</a>
+    </div>
+</body>
+</html>

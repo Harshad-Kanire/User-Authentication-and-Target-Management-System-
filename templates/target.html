@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Targets</title>
+    <link rel='stylesheet' href="/static/style.css">
+</head>
+<body class='target'>
+    <div class="container">
+        <h1>User Targets</h1>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Add New Target Form (Disabled if 5 targets are reached) -->
+        {% if target_count < 5 %}
+            <form method="POST" action="{{ url_for('target', id=id) }}">
+                <label>New Target:</label>
+                <input id="field" type="text" name="target" required>
+                <button class="common-style" id="field" type="submit">Add Target</button>
+            </form>
+        {% else %}
+            <p class="max-limit">You have reached the maximum limit of 5 targets.</p>
+        {% endif %}
+
+        <h3>Existing Targets</h3>
+        {% if targets %}
+            <ul>
+                {% for target in targets %}
+                    <li>
+                        {{ target[1] }}
+                        <form method="POST" action="{{ url_for('remove_target', user_id=id, target_id=target[0]) }}" style="display:inline;">
+                            <button class="remove  common-style" id="field" type="submit">Remove</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-targets">No targets available.</p>
+        {% endif %}
+
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+</body>
+</html>

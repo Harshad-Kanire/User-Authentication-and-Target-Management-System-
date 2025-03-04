@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel='stylesheet' href='/static/style.css'>
+</head>
+<body class="dash">
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h1><i class="fa-solid fa-chart-line" style="color: #ff5733;"></i> Dashboard
+        </h1>
+
+        
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}" class="menu-item">🏠 Home</a></li>
+            <li><a href="{{ url_for('profile', id=session['id']) }}" class="menu-item">👤 Profile</a></li>
+            <li><a href="{{ url_for('target', id=session['id']) }}" class="menu-item">🎯 Target</a></li>
+            <li><a href="{{ url_for('logout') }}" class="menu-item logout-btn">🚪 Logout</a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <h2>Welcome, {{ name }}!</h2>
+        <br>
+        <p class="msg">You are now logged in.</p>
+    </div>
+
+
+</body>
+</html>

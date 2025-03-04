@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body >
+    
+    <div class="data container" >
+        <h1>User Profile</h1><br>
+        <ul>
+            <li><strong>ID:</strong> {{ user_data[0] }}</li>
+            <li><strong>Name:</strong> {{ user_data[1] }}</li>
+            <li><strong>Email:</strong> {{ user_data[2] }}</li>
+            <li><strong>Password (Hashed):</strong> {{ user_data[3] }}</li>
+        </ul>
+    
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        <a href="{{ url_for('edit', id=user_data[0]) }}"><button class="common-style">Edit Profile</button></a>
+    </div>
+</body>
+</html>
