@@ -69,7 +69,8 @@ Access the app in your browser: **http://127.0.0.1:5000/**
 - Login Page  
 - Registration Page  
 - Dashboard
-  [![Dashboard](https://github.com/Harshad-Kanire/User-Authentication-and-Target-Management-System-/blob/main/images/dashboard.png)]
+![Dashboard](https://raw.githubusercontent.com/Harshad-Kanire/User-Authentication-and-Target-Management-System-/main/images/dashboard.png)
+
 - Target Management  
 
 ## **📜 License**  
